@@ -43,6 +43,26 @@ Seguindo as diretrizes do PMBOK, foram mapeados os seguintes riscos para o ciclo
 * **Hospedagem**: Streamlit Community Cloud para o Data App.
 * **Modelos de IA**: API de LLM (OpenAI/Gemini) para análise de linguagem natural.
 
+---
+
+##  Arquitetura da Solução
+
+O projeto foi estruturado seguindo as fases do ciclo de vida de dados da plataforma Dadosfera:
+
+1. **Integrar**: Ingestão do dataset de 10.005 registros no repositório GitHub.
+2. **Explorar**: Catalogação de metadados e criação do Dicionário de Dados detalhado.
+3. **Processar**: Limpeza de valores nulos (coluna `Category`) e normalização de tipos via Python e Pandas.
+4. **Qualidade**: Auditoria de dados para garantir integridade dos KPIs e tratamento de outliers de preço.
+5. **Analisar**: Desenvolvimento de dashboards interativos no Streamlit.
+6. **IA**: Implementação de um assistente inteligente (LLM) para geração de insights de negócio.
+
+---
+
+##  Entregáveis
+
+* **Data App (Streamlit)**: [Link será adicionado após o deploy]
+* **Notebook de Desenvolvimento**: [Link do Google Colab]
+* **Vídeo de Apresentação**: [Link do YouTube - Não Listado]
 
 ##  Planejamento e Gestão (PMBOK)
 Seguindo as melhores práticas de gestão de projetos, o desenvolvimento foi dividido nas seguintes fases:
