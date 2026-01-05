@@ -51,16 +51,16 @@ Seguindo as melhores práticas de gestão de projetos, o desenvolvimento foi div
 OBS: Quadro Kanban feito aqui nesse repositório github na guia de Projects
 ```mermaid
 gantt
-    title Planejamento do Projeto
+    title Planejamento do Projeto 
     dateFormat  YYYY-MM-DD
     section Iniciação
-    Definição do Escopo e Dataset    :done, 2025-01-01, 1d
+    Definição do Escopo e Dataset    :done, 2026-01-01, 1d
     section Planejamento
-    Criação da Arquitetura e Riscos :done, 2025-01-02, 1d
+    Criação da Arquitetura e Riscos :done, 2026-01-02, 1d
     section Execução
-    Ingestão e Catálogo (Dadosfera) :done, 2025-01-03, 2d
-    Tratamento e Qualidade de Dados  :done, 2025-01-05, 2d
-    Desenvolvimento do Data App      :done, 2026-01-07, 3d
+    Ingestão e Catálogo (GitHub)    :done, 2026-01-03, 2d
+    Tratamento e Qualidade de Dados  :done, 2026-01-04, 2d
+    Desenvolvimento do Data App      :done, 2026-01-04, 3d
     section Encerramento
-    Documentação e Vídeo             :done, 2026-01-10, 1d
+    Documentação e Vídeo             :done, 2026-01-04, 1d
 
