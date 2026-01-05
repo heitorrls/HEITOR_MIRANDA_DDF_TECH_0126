@@ -6,35 +6,42 @@ Este projeto foi desenvolvido como parte do processo seletivo da **Dadosfera**. 
 O desafio foca em transformar dados brutos de transações em insights estratégicos para otimização de faturamento e análise de comportamento do consumidor.
 
 ---
-## Análise de Riscos e Mitigação
-Seguindo as diretrizes de gerenciamento de projetos (PMBOK), foram mapeados os seguintes riscos críticos para a execução do ciclo de vida de dados:
+##  Dicionário de Dados
 
-Risco de Qualidade de Dados: Presença de registros nulos na coluna Category e possíveis inconsistências (outliers) na coluna Price (Rs.).
+A base de dados utilizada contém 10.005 registros transacionais com as seguintes características:
 
-Mitigação: Desenvolvimento de um pipeline de tratamento via Python utilizando a biblioteca Pandas para imputação de dados e validação de ranges estatísticos.
+| Coluna | Tipo | Descrição | Exemplo |
+| :--- | :--- | :--- | :--- |
+| `User_ID` | String | Identificador único do cliente. | `337c166f` |
+| `Product_ID` | String | Identificador único do produto. | `f414122f-e` |
+| `Category` | Categórico | Categoria do item (contém valores nulos para fins de teste de qualidade). | `Sports` |
+| `Price (Rs.)` | Float | Preço original do produto em Rúpias. | `3653` |
+| `Discount (%)` | Inteiro | Percentual de desconto aplicado à venda. | `15` |
+| `Final_Price(Rs.)` | Float | Valor líquido da transação após o desconto. | `3105` |
+| `Payment_Method` | Categórico | Meio de pagamento utilizado na transação. | `Net Banking` |
+| `Purchase_Date` | Data | Data da compra no formato DD/MM/YYYY. | `12/11/2024` |
 
-Risco Técnico de Infraestrutura: Dificuldade técnica na ingestão de dados via interface gráfica da plataforma.
+---
 
-Mitigação: Adoção de uma estratégia de "Data as Code", centralizando o processamento no ecossistema GitHub e Streamlit Cloud para garantir que o projeto seja 100% reprodutível.
+##  Análise de Riscos e Mitigação
 
-Risco de Alucinação em IA: Geração de insights incorretos pelo modelo de linguagem (LLM).
+Seguindo as diretrizes do PMBOK, foram mapeados os seguintes riscos para o ciclo de vida dos dados:
 
-Mitigação: Aplicação de técnicas de Prompt Engineering para limitar as respostas da IA aos dados factuais presentes no dataset de 10.005 registros.
+* **Risco de Qualidade de Dados**: Presença de registros nulos na coluna `Category` e possíveis inconsistências nos preços.
+    * **Mitigação**: Implementação de pipeline de limpeza em Python (Pandas) para imputação de valores e validação estatística.
+* **Risco Técnico**: Dificuldade de ingestão via interface da plataforma.
+    * **Mitigação**: Centralização da solução no ecossistema GitHub e Streamlit Cloud, garantindo a reprodutibilidade via código.
+* **Risco de Alucinação em IA**: Geração de insights incorretos pelo modelo de linguagem.
+    * **Mitigação**: Uso de *Prompt Engineering* para ancorar as respostas do LLM estritamente nos dados do dataset.
 
-## Estimativa de Recursos
-A alocação de recursos foi planejada para otimizar a entrega técnica dentro do prazo estipulado:
+---
 
-Recursos Humanos: 1 Analista de Dados (focado em Engenharia, BI e implementação de IA).
+##  Estimativa de Recursos
 
-Recursos Tecnológicos:
-
-Processamento: Google Colab com ambiente Python 3.10+ para manipulação de grandes volumes de dados.
-
-Visualização e App: Streamlit Community Cloud para hospedagem da interface interativa.
-
-IA Generativa: Integração com APIs de modelos de linguagem (OpenAI/Gemini) para análise avançada de dados.
-
-Governança: GitHub para versionamento de código e documentação.
+* **Pessoas**: 1 Analista de Dados (Engenharia, BI e IA).
+* **Processamento**: Google Colab (Python 3.10+).
+* **Hospedagem**: Streamlit Community Cloud para o Data App.
+* **Modelos de IA**: API de LLM (OpenAI/Gemini) para análise de linguagem natural.
 
 
 ##  Planejamento e Gestão (PMBOK)
