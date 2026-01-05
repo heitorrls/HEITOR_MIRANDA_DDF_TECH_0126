@@ -10,7 +10,8 @@ O desafio foca em transformar dados brutos de transações em insights estratég
 ##  Planejamento e Gestão (PMBOK)
 Seguindo as melhores práticas de gestão de projetos, o desenvolvimento foi dividido nas seguintes fases:
 
-### Cronograma de Execução
+### Cronograma de Execução 
+OBS: Quadro Kanban feito aqui nesse repositório github na guia de Projects
 ```mermaid
 gantt
     title Planejamento do Projeto
