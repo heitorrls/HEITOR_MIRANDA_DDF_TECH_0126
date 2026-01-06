@@ -61,7 +61,7 @@ O projeto foi estruturado seguindo as fases do ciclo de vida de dados da platafo
 ##  Entregáveis
 
 * **Data App (Streamlit)**: [Link será adicionado após o deploy]
-* **Notebook de Desenvolvimento**: [Link do Google Colab]
+* **Notebook de Desenvolvimento**: https://colab.research.google.com/drive/1OaO7lp0ZPODgw0AK56qjeGlvm2E5P2aC?usp=sharing
 * **Vídeo de Apresentação**: [Link do YouTube - Não Listado]
 
 ##  Planejamento e Gestão (PMBOK)
