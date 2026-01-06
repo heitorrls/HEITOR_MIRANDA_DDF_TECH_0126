@@ -62,7 +62,7 @@ O projeto foi estruturado seguindo as fases do ciclo de vida de dados da platafo
 
 * **Data App (Streamlit)**: https://heitormirandaddftech0126-mbmkbkizbxgclkwuppj95m.streamlit.app
 * **Notebook de Desenvolvimento**: https://colab.research.google.com/drive/1OaO7lp0ZPODgw0AK56qjeGlvm2E5P2aC?usp=sharing
-* **Vídeo de Apresentação**: [Link do YouTube - Não Listado]
+* **Vídeo de Apresentação**: https://youtu.be/E67bXyQoSOA
 
 ##  Planejamento e Gestão (PMBOK)
 Seguindo as melhores práticas de gestão de projetos, o desenvolvimento foi dividido nas seguintes fases:
