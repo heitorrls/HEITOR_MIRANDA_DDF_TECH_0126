@@ -6,23 +6,21 @@ import google.generativeai as genai
 # 1. Configuração da Página
 st.set_page_config(page_title="Dadosfera | E-commerce Analytics", layout="wide")
 
-# 2. Configuração da IA (Google Gemini)
-# O código tenta primeiro usar os Secrets do Streamlit (para o Deploy)
+# 2. Configuração da IA (Google Gemini 2.5)
 if "GOOGLE_API_KEY" in st.secrets:
     genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 else:
-    # Fallback para teste local (substitua pela sua chave se necessário)
+    # Fallback para teste local
     genai.configure(api_key="AIzaSyDW6i7cgDcqtKbOtPxoLW4woda-wXjRdxo")
 
 # 3. Carregamento dos Dados (Camada Silver)
 @st.cache_data
 def load_data():
-    # Caminho ajustado para a estrutura do repositório
     try:
-        df = pd.read_csv('case_dadosfera/ecommerce_limpo.csv', sep=';')
-    except FileNotFoundError:
-        # Fallback caso o comando seja executado dentro da pasta 'case_dadosfera'
+        # Tenta carregar da raiz ou da pasta do projeto
         df = pd.read_csv('ecommerce_limpo.csv', sep=';')
+    except FileNotFoundError:
+        df = pd.read_csv('case_dadosfera/ecommerce_limpo.csv', sep=';')
         
     df['Purchase_Date'] = pd.to_datetime(df['Purchase_Date'])
     return df
@@ -33,7 +31,7 @@ df = load_data()
 st.title("📊 Dadosfera: E-commerce Analytics & IA")
 st.markdown(f"Análise de **{len(df)}** transações processadas com sucesso.")
 
-# 5. KPIs Principais (Métricas Estratégicas)
+# 5. KPIs Principais
 col1, col2, col3 = st.columns(3)
 with col1:
     st.metric("Volume de Vendas", f"{len(df):,}")
@@ -61,7 +59,7 @@ with col_right:
                      hole=0.4)
     st.plotly_chart(fig_pay, use_container_width=True)
 
-# 7. Assistente de IA (Integração com Gemini 2.5 Flash)
+# 7. Assistente de IA (Utilizando Gemini 2.5 Flash)
 st.divider()
 st.subheader("🤖 Assistente Inteligente Dadosfera")
 st.info("Pergunte à IA sobre tendências, categorias ou métricas do dataset.")
@@ -69,7 +67,6 @@ st.info("Pergunte à IA sobre tendências, categorias ou métricas do dataset.")
 user_question = st.text_input("Exemplo: Qual categoria tem o maior ticket médio?")
 
 if user_question:
-    # Preparação de contexto detalhado para evitar alucinações
     estatisticas_gerais = df.describe(include='all').to_string()
     resumo_categorias = df.groupby('Category')[['Price (Rs.)', 'Discount (%)', 'Final_Price(Rs.)']].mean().to_string()
     
@@ -88,8 +85,9 @@ if user_question:
     Instrução: Responda de forma precisa e técnica com base nos dados fornecidos.
     """
     
-    with st.spinner('A IA está analisando os dados...'):
+    with st.spinner('A IA Gemini 2.5 está analisando os dados...'):
         try:
+            # Atualizado para a versão 2.5 conforme solicitado
             model = genai.GenerativeModel('gemini-2.5-flash')
             response = model.generate_content(contexto)
             st.markdown("### 🤖 Resposta da IA Baseada nos Dados:")
