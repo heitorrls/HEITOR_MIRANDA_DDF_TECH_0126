@@ -90,7 +90,7 @@ if user_question:
     
     with st.spinner('A IA está analisando os dados...'):
         try:
-            model = genai.GenerativeModel('gemini-1.5-flash')
+            model = genai.GenerativeModel('gemini-2.5-flash')
             response = model.generate_content(contexto)
             st.markdown("### 🤖 Resposta da IA Baseada nos Dados:")
             st.success(response.text)
